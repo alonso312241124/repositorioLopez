@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moderación - InvestForums</title>
+  <link rel="stylesheet" href="css/general.css">
+</head>
+<body>
+<div class="reports-page-container">
+  <a href="index.html" class="back-to-home">← Volver al inicio</a>
+
+  <header class="reports-header">
+    <h1>Panel de Moderación</h1>
+    <p>Gestión de reportes del foro</p>
+  </header>
+
+  <div class="reports-container">
+    <div class="reports-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="pendientes">Pendientes</button>
+      <button class="filter-btn" data-filter="resueltos">Resueltos</button>
+    </div>
+
+    <div id="reports-loading" class="loading-detalle">
+      <div class="loading-spinner-detalle"></div>
+      Cargando reportes...
+    </div>
+
+    <div id="reports-content"></div>
+
+    <div id="reports-error" class="error-message-detalle" style="display: none;">
+      Error al cargar los reportes
+    </div>
+  </div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/reportes.js"></script>
+</body>
+</html>

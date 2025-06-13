@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: foro-database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: foro
+    ports:
+      - "3307:3306"
+    networks:
+      - foro-network
+
+  # Backend Spring Boot
+  backend:
+    build: ./foro
+    container_name: foro-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/foro
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpassword
+    depends_on:
+      - db
+    networks:
+      - foro-network
+
+  # Frontend - CAMBIAR PUERTO A 3000
+  frontend:
+    build:
+      context: ./foro-interfaz
+      dockerfile: Dockerfile.frontend
+    container_name: foro-frontend
+    restart: always
+    ports:
+      - "3000:80"  # ← Cambiar aquí: acceso externo por puerto 3000
+    depends_on:
+      - backend
+    networks:
+      - foro-network
+
+networks:
+  foro-network:
+    driver: bridge

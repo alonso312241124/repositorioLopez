@@ -1,0 +1,99 @@
+.header .back-link {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.header .back-link:hover {
+    color: #e0e0e0;
+}
+
+.about-content {
+    text-align: center;
+    color: #c7d2fe;
+}
+
+.about-bio {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.about-bio strong {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.about-section {
+    margin-bottom: 30px;
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tech-tag {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #8ec5fc;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #2d3748;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: white;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .header .back-link {
+        display: none;
+    }
+
+    .about-bio {
+        font-size: 0.95rem;
+    }
+}

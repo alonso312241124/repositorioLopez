@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InvestForums - Foro de Finanzas</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/ranking.css">
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1><a href="index.html">I n v e s t F o r u m s</a></h1>
+    <p>
+      Tu comunidad para discutir sobre inversiones y finanzas personales
+    </p>
+    <div class="header-auth-buttons" id="auth-controls">
+      <button id="open-login-dialog-btn" class="btn btn-secondary">
+        Login
+      </button>
+      <button id="open-register-dialog-btn" class="btn btn-primary">
+        Registrarse
+      </button>
+      <a href="perfil.html" id="profile-link" class="btn btn-secondary" style="display: none;">Mi Perfil</a>
+      <button id="logout-btn" class="btn btn-secondary" style="display: none;">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <div class="stock-subheader">
+    <div class="stock-subheader-container">
+      <div class="stock-subheader-content">
+        <span class="stock positive-change">AAPL 200.85 $<span class="price-change">▲ +1.23 $</span></span>
+        <span class="stock negative-change">TSLA 346.46 $<span class="price-change">▼ -0.50 $</span></span>
+        <span class="stock positive-change">MSFT 460.36 $<span class="price-change">▲ +0.80 $</span></span>
+        <span class="stock positive-change">GOOG 172.75 $<span class="price-change">▲ +2.50 $</span></span>
+        <span class="stock negative-change">AMZN 205.00 $<span class="price-change">▼ -1.10 $</span></span>
+        <span class="stock positive-change">NVDA 135.50 $<span class="price-change">▲ +5.00 $</span></span>
+        <span class="stock negative-change">META 647.30 $<span class="price-change">▼ -0.75 $</span></span>
+        <span class="stock positive-change">JPM 264.90 $<span class="price-change">▲ +0.95 $</span></span>
+        <span class="stock negative-change">NFLX 1207.80 $<span class="price-change">▼ -2.00 $</span></span>
+        <span class="stock positive-change">TSM 193.20 $<span class="price-change">▲ +1.80 $</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <main class="subforos-container">
+      <h2 class="subforos-title">Subforos</h2>
+      <div id="subforos-content">
+      </div>
+    </main>
+    <aside>
+      <!-- Profile -->
+      <div class="aside-section" id="profile-section">
+        <h3 class="aside-title">👤 Perfil</h3>
+        <div class="placeholder-content" id="user-profile-info">
+          No has iniciado sesión
+        </div>
+      </div>
+
+      <div class="aside-section leaderboard-animated">
+        <h3 class="aside-title">🏆 Leaderboard</h3>
+        <div class="placeholder-content">
+          <!-- Ranking -->
+        </div>
+      </div>
+
+      <!-- Sección de Moderación (solo para admins) -->
+      <div class="aside-section" id="moderation-section" style="display: none;">
+        <h3 class="aside-title">⚖️ Moderación</h3>
+        <div class="moderation-content">
+          <button id="view-reports-btn" class="btn-accion">
+            Ver Reportes
+          </button>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="site-footer-simple">
+  <a href="sobre_mi.html">Sobre Mí</a>
+</footer>
+
+<!-- Login Dialog -->
+<dialog id="login-dialog" class="auth-dialog">
+  <div class="dialog-header">
+    <h2>Iniciar Sesión</h2>
+    <button class="close-dialog-btn" aria-label="Cerrar">×</button>
+  </div>
+  <form id="login-form">
+    <div class="form-group">
+      <label for="login-username">Nombre de Usuario:</label>
+      <input type="text" id="login-username" name="username" required placeholder="Tu nombre de usuario"/>
+    </div>
+    <div class="form-group">
+      <label for="login-password">Contraseña:</label>
+      <input type="password" id="login-password" name="password" required placeholder="••••••••"/>
+    </div>
+    <div id="login-message" class="dialog-message"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">
+        Iniciar Sesión
+      </button>
+    </div>
+    <p class="dialog-footer">
+      ¿No tienes cuenta?
+      <a href="#" id="switch-to-register">Regístrate aquí</a>
+    </p>
+  </form>
+</dialog>
+
+
+<!-- Register Dialog -->
+<dialog id="register-dialog" class="auth-dialog">
+  <div class="dialog-header">
+    <h2>Crear Cuenta</h2>
+    <button class="close-dialog-btn" aria-label="Cerrar">×</button>
+  </div>
+  <form id="register-form">
+    <div class="form-group">
+      <label for="register-username">Nombre de Usuario:</label>
+      <input type="text" id="register-username" name="username" required placeholder="Elige un nombre de usuario"/>
+    </div>
+    <div class="form-group">
+      <label for="register-email">Email:</label>
+      <input type="text" id="register-email" name="email" required placeholder="tu@email.com"/>
+    </div>
+    <div class="form-group">
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" name="password" required placeholder="Mínimo 6 caracteres"/>
+    </div>
+    <div id="register-message" class="dialog-message"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+    </div>
+    <p class="dialog-footer">
+      ¿Ya tienes cuenta?
+      <a href="#" id="switch-to-login">Inicia sesión aquí</a>
+    </p>
+  </form>
+</dialog>
+<script src="js/config.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

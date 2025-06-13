@@ -1,0 +1,246 @@
+.main-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.subforos-container {
+    flex: 3;
+    min-width: 0;
+    background: #1e1e2f;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #2d3748;
+}
+
+.subforos-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #4c8bed;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #3b82f6;
+}
+
+.subforos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.subforo-card {
+    background: #2a2a3e;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.subforo-card:hover {
+    transform: translateY(-3px);
+    border-color: #3b82f6;
+    background: #31314a;
+}
+
+.subforo-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.subforo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.7);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.subforo-icon img {
+    width: 95%;
+    height: 95%;
+}
+
+.subforo-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.subforo-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.subforo-description {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+/* Media Queries para Index */
+@media (max-width: 1200px) {
+    .main-layout {
+        gap: 25px;
+    }
+
+    aside {
+        min-width: 250px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-layout {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    aside {
+        max-width: none;
+        min-width: 0;
+        order: 2;
+    }
+
+    .subforos-container {
+        order: 1;
+        flex: none;
+    }
+
+    .subforos-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .subforos-list {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .main-layout {
+        gap: 20px;
+    }
+
+    .subforos-container {
+        padding: 20px;
+    }
+
+    .subforos-title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .subforos-list {
+        gap: 15px;
+    }
+
+    .subforo-card {
+        padding: 15px;
+    }
+
+    .subforo-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .subforo-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .subforo-details {
+        align-items: center;
+    }
+
+    .subforo-name {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .subforo-description {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    aside {
+        gap: 20px;
+    }
+
+    .aside-section {
+        padding: 15px;
+    }
+
+    .aside-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .main-layout {
+        gap: 15px;
+    }
+
+    .subforos-container {
+        padding: 15px;
+    }
+
+    .subforos-title {
+        font-size: 1.4rem;
+    }
+
+    .subforo-card {
+        padding: 12px;
+    }
+
+    .subforo-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .subforo-name {
+        font-size: 1.1rem;
+    }
+
+    .subforo-description {
+        font-size: 0.85rem;
+    }
+
+    .aside-section {
+        padding: 12px;
+    }
+
+    aside {
+        gap: 15px;
+    }
+}

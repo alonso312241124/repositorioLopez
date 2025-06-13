@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/post_detalle_style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <title>Cargando Post...</title>
+</head>
+<body>
+<div class="page-container-detalle">
+  <header class="header-detalle">
+    <h1><a href="index.html">I n v e s t F o r u m s</a></h1>
+  </header>
+
+  <main>
+    <div id="post-detalle-container" class="post-content-area">
+      <div class="loading-detalle">
+        <div class="loading-spinner-detalle"></div>
+        Cargando post...
+      </div>
+    </div>
+
+    <section class="comentarios-seccion">
+      <h2>Respuestas</h2>
+      <div id="lista-comentarios">
+        <p class="comentario-loading">Cargando comentarios...</p>
+      </div>
+
+      <div id="comentario-form-area"></div>
+    </section>
+  </main>
+</div>
+
+<div id="edit-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" data-modal-target="edit-modal">&times;</span>
+    <h2>Editar Contenido</h2>
+    <form id="edit-form">
+      <input type="hidden" id="edit-id">
+      <input type="hidden" id="edit-type">
+      <div class="form-group">
+        <label for="edit-title" id="edit-title-label">Título:</label>
+        <input type="text" id="edit-title" placeholder="Título del post">
+      </div>
+      <div class="form-group">
+        <label for="edit-content" id="edit-content-label">Contenido:</label>
+        <textarea id="edit-content" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Guardar Cambios</button>
+    </form>
+  </div>
+</div>
+
+<div id="confirm-modal" class="modal"> 
+  <div class="modal-content small-modal">
+    <span class="close-button" data-modal-target="confirm-modal">&times;</span>
+    <h2 id="confirm-modal-title">Confirmar Acción</h2>
+    <p id="confirm-modal-message" class="confirm-message">¿Estás seguro de que quieres realizar esta acción?</p>
+    <div class="confirm-buttons">
+      <button id="confirm-yes-btn" class="btn btn-primary">Sí</button>
+      <button id="confirm-no-btn" class="btn btn-secondary">No</button>
+    </div>
+  </div>
+</div>
+
+<div id="report-modal" class="modal"> 
+  <div class="modal-content">
+    <span class="close-button" data-modal-target="report-modal">&times;</span>
+    <h2>Reportar Contenido</h2>
+    <form id="report-form">
+      <input type="hidden" id="report-entity-id">
+      <input type="hidden" id="report-entity-type">
+      <div class="form-group">
+        <label for="report-reason">Motivo del reporte:</label>
+        <textarea id="report-reason" rows="4" placeholder="Describe el motivo del reporte..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Enviar Reporte</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/post_detalle_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario - InvestForums</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/perfil_style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <h1><a href="index.html">I n v e s t F o r u m s</a></h1>
+    <p>Tu comunidad para discutir sobre inversiones y finanzas personales</p>
+    <div class="header-auth-buttons" id="auth-controls">
+      <button id="open-login-dialog-btn" class="btn btn-secondary">Login</button>
+      <button id="open-register-dialog-btn" class="btn btn-primary">Registrarse</button>
+      <button id="logout-btn" class="btn btn-secondary" style="display: none;">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <main class="profile-main-content">
+    <!-- Columna izquierda - Perfil -->
+    <div class="profile-left-column">
+      <section id="perfil-usuario-container" class="profile-section">
+        <div class="loading-perfil">
+          <div class="loading-spinner-perfil"></div>
+          Cargando perfil...
+        </div>
+      </section>
+    </div>
+
+    <!-- Columna derecha - Comentarios -->
+    <div class="profile-right-column">
+      <section id="user-comments-section" class="comments-section" style="display: none;">
+        <h2><i class="bi bi-chat-dots"></i> Comentarios recientes de <span id="profile-username-comments"></span></h2>
+        <div id="user-comments-list" class="comments-list">
+          <!-- Los comentarios del usuario se cargarán aquí -->
+        </div>
+        <button id="view-all-comments-btn" class="btn btn-primary" style="display: none;">Ver todos los comentarios</button>
+      </section>
+    </div>
+  </main>
+
+</div>
+
+<!-- Diálogos de login/registro -->
+<dialog id="login-dialog" class="auth-dialog">
+  <div class="dialog-header">
+    <h2>Iniciar Sesión</h2>
+    <button class="close-dialog-btn" aria-label="Cerrar">×</button>
+  </div>
+  <form id="login-form">
+    <div class="form-group">
+      <label for="login-username">Nombre de Usuario:</label>
+      <input type="text" id="login-username" name="username" required placeholder="Tu nombre de usuario"/>
+    </div>
+    <div class="form-group">
+      <label for="login-password">Contraseña:</label>
+      <input type="password" id="login-password" name="password" required placeholder="••••••••"/>
+    </div>
+    <div id="login-message" class="dialog-message"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </div>
+    <p class="dialog-footer">
+      ¿No tienes cuenta?
+      <a href="#" id="switch-to-register">Regístrate aquí</a>
+    </p>
+  </form>
+</dialog>
+
+<dialog id="register-dialog" class="auth-dialog">
+  <div class="dialog-header">
+    <h2>Crear Cuenta</h2>
+    <button class="close-dialog-btn" aria-label="Cerrar">×</button>
+  </div>
+  <form id="register-form">
+    <div class="form-group">
+      <label for="register-username">Nombre de Usuario:</label>
+      <input type="text" id="register-username" name="username" required placeholder="Elige un nombre de usuario"/>
+    </div>
+    <div class="form-group">
+      <label for="register-email">Email:</label>
+      <input type="text" id="register-email" name="email" required placeholder="tu@email.com"/>
+    </div>
+    <div class="form-group">
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" name="password" required placeholder="Mínimo 6 caracteres"/>
+    </div>
+    <div id="register-message" class="dialog-message"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+    </div>
+    <p class="dialog-footer">
+      ¿Ya tienes cuenta?
+      <a href="#" id="switch-to-login">Inicia sesión aquí</a>
+    </p>
+  </form>
+</dialog>
+
+<!-- Dialog de edición de perfil -->
+<dialog id="edit-profile-dialog" class="auth-dialog">
+  <div class="dialog-header">
+    <h2>Editar Perfil</h2>
+    <button class="close-dialog-btn" aria-label="Cerrar">×</button>
+  </div>
+  <form id="edit-profile-form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="edit-email">Email:</label>
+      <input type="email" id="edit-email" name="email" placeholder="Nuevo email (opcional)"/>
+      <small>Déjalo vacío si no quieres cambiarlo</small>
+    </div>
+    <div class="form-group">
+      <label for="edit-password">Nueva Contraseña:</label>
+      <input type="password" id="edit-password" name="password" placeholder="Nueva contraseña (opcional)"/>
+      <small>Mínimo 6 caracteres. Déjalo vacío si no quieres cambiarla.</small>
+    </div>
+    <div class="form-group">
+      <label for="edit-foto">Foto de Perfil:</label>
+      <input type="file" id="edit-foto" name="foto" accept="image/*"/>
+      <small>Formatos permitidos: JPG, PNG, GIF. Máximo 10MB.</small>
+      <div id="preview-container" style="margin-top: 10px; display: none;">
+        <img id="image-preview" style="max-width: 150px; max-height: 150px; border-radius: 8px; border: 2px solid #ddd;">
+      </div>
+    </div>
+    <div id="edit-profile-message" class="dialog-message"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary" id="cancel-edit-btn">Cancelar</button>
+    </div>
+  </form>
+</dialog>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/perfil_script.js"></script>
+</body>
+</html>
